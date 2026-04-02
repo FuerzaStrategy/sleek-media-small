@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -6,13 +7,13 @@ export default function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-6 md:flex-row md:justify-between lg:px-10">
         {/* Left: logo + social + copyright */}
         <div className="flex flex-col items-center gap-4 md:items-start">
-          <Link href="/" className="flex flex-col leading-none">
-            <span className="text-lg font-black tracking-widest text-white uppercase">
-              Sleek
-            </span>
-            <span className="text-lg font-black tracking-widest text-white uppercase">
-              Media
-            </span>
+          <Link href="/">
+            <Image
+              src="/images/sleek-light.svg"
+              alt="Sleek Media"
+              width={110}
+              height={36}
+            />
           </Link>
 
           {/* Social */}
@@ -54,7 +55,7 @@ export default function Footer() {
 
           <p className="text-xs text-white/40">
             © Sleek Media 2026 &nbsp;|&nbsp;{" "}
-            <Link href="/privacy" className="hover:text-white/70 transition">
+            <Link href="/privacy" className="transition hover:text-white/70">
               Privacy Policy
             </Link>
           </p>
@@ -67,7 +68,7 @@ export default function Footer() {
               <li key={item}>
                 <Link
                   href={`#${item.toLowerCase()}`}
-                  className="text-sm font-medium text-white/70 transition hover:text-teal"
+                  className="text-sm font-semibold text-white/70 transition hover:text-teal"
                 >
                   {item}
                 </Link>

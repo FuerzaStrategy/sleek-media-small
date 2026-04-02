@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["300", "400", "600", "700", "900"],
+  style: ["normal", "italic"],
+  variable: "--font-source-sans",
 });
 
 export const metadata: Metadata = {
@@ -17,7 +19,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={sourceSans.variable}>
       <body>{children}</body>
     </html>
   );

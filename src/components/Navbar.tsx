@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -10,41 +11,28 @@ export default function Navbar() {
     <header className="absolute inset-x-0 top-0 z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none">
-          <span className="text-xl font-black tracking-widest text-white uppercase">
-            Sleek
-          </span>
-          <span className="text-xl font-black tracking-widest text-white uppercase">
-            Media
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/sleek-light.svg"
+            alt="Sleek Media"
+            width={120}
+            height={40}
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-10 md:flex">
-          <li>
-            <Link
-              href="#plans"
-              className="text-sm font-medium text-white/90 transition hover:text-teal"
-            >
-              Plans
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#work"
-              className="text-sm font-medium text-white/90 transition hover:text-teal"
-            >
-              Work
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#contact"
-              className="text-sm font-medium text-white/90 transition hover:text-teal"
-            >
-              Contact
-            </Link>
-          </li>
+          {["Plans", "Work", "Contact"].map((item) => (
+            <li key={item}>
+              <Link
+                href={`#${item.toLowerCase()}`}
+                className="text-sm font-semibold text-white/90 transition hover:text-teal"
+              >
+                {item}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* CTA */}
@@ -75,7 +63,7 @@ export default function Navbar() {
               <li key={item}>
                 <Link
                   href={`#${item.toLowerCase()}`}
-                  className="block text-lg font-medium text-white"
+                  className="block text-lg font-semibold text-white"
                   onClick={() => setMenuOpen(false)}
                 >
                   {item}

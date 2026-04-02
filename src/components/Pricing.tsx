@@ -4,7 +4,7 @@ const plans = [
   {
     name: "Visibility Boost",
     price: "$850",
-    icon: "/images/visibility_bosot_icon.svg",
+    icon: "/images/visibility_boost_icon.svg",
     features: [
       "2 social media video posts",
       "4-8 social media photo posts",

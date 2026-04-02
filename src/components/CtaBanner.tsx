@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function CtaBanner() {
@@ -6,12 +7,14 @@ export default function CtaBanner() {
       id="contact"
       className="relative flex items-center justify-center py-28 text-center"
     >
-      {/* Background image reusing hero */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/hero.png')" }}
+      {/* Background — next/image handles basePath automatically */}
+      <Image
+        src="/images/hero.png"
+        alt=""
+        fill
+        className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-navy/80" />
+      <div className="absolute inset-0 bg-navy/85" />
 
       <div className="relative z-10 px-6">
         <h2 className="text-4xl font-black text-white md:text-5xl">
