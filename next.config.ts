@@ -2,9 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  // Set by the workflow via configure-pages base_path output.
-  // Empty string in local dev so paths resolve from root.
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? "",
+  // basePath is injected by actions/configure-pages (static_site_generator: next)
+  // during the GitHub Actions build. Not set locally so dev works from root.
   images: {
     unoptimized: true,
   },
