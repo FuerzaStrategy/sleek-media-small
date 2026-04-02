@@ -1,4 +1,6 @@
-import Image from "@/components/Image";
+import Image from "next/image";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const plans = [
   {
@@ -62,42 +64,31 @@ export default function Pricing() {
               key={plan.name}
               className="flex flex-col items-center rounded-xl border border-gray-100 bg-white p-8 shadow-sm text-center"
             >
-              {/* Icon */}
               <div className="mb-5 flex h-16 w-16 items-center justify-center">
                 <Image
-                  src={plan.icon}
+                  src={`${BASE}${plan.icon}`}
                   alt={`${plan.name} icon`}
                   width={56}
                   height={56}
-                  className="text-teal"
                 />
               </div>
 
-              {/* Name */}
               <h3 className="text-base font-bold text-navy">{plan.name}</h3>
 
-              {/* Price */}
               <div className="mt-3">
-                <span className="text-4xl font-black text-navy">
-                  {plan.price}
-                </span>
+                <span className="text-4xl font-black text-navy">{plan.price}</span>
                 <span className="ml-1 text-sm text-gray-500">/month</span>
               </div>
 
-              {/* Inherit note */}
               {plan.inherit && (
                 <p className="mt-4 text-xs font-medium text-gray-400 italic">
                   Everything in {plan.inherit} plus:
                 </p>
               )}
 
-              {/* Features */}
               <ul className="mt-4 space-y-2 text-left w-full">
                 {plan.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-start gap-2 text-sm text-gray-600"
-                  >
+                  <li key={feature} className="flex items-start gap-2 text-sm text-gray-600">
                     <span className="mt-0.5 flex-shrink-0 text-teal">✓</span>
                     {feature}
                   </li>

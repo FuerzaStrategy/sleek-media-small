@@ -1,8 +1,10 @@
 "use client";
 
-import Image from "@/components/Image";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,10 +12,9 @@ export default function Navbar() {
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-        {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/images/sleek-light.svg"
+            src={`${BASE}/images/sleek-light.svg`}
             alt="Sleek Media"
             width={120}
             height={40}
@@ -21,7 +22,6 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Desktop nav */}
         <ul className="hidden items-center gap-10 md:flex">
           {["Plans", "Work", "Contact"].map((item) => (
             <li key={item}>
@@ -35,7 +35,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA */}
         <Link
           href="#contact"
           className="hidden rounded-md bg-teal px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-dark md:inline-block"
@@ -43,7 +42,6 @@ export default function Navbar() {
           Get Started
         </Link>
 
-        {/* Mobile hamburger */}
         <button
           className="flex flex-col gap-1.5 md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -55,7 +53,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile menu */}
       {menuOpen && (
         <div className="bg-navy px-6 pb-6 md:hidden">
           <ul className="flex flex-col gap-4">

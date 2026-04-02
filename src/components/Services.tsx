@@ -1,4 +1,6 @@
-import Image from "@/components/Image";
+import Image from "next/image";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const services = [
   {
@@ -29,7 +31,7 @@ const services = [
     id: "video-production",
     title: "Video Production",
     body: "We produce content built for how people actually watch. Whether it's short-form social, campaign ads, or brand storytelling, our team handles concept through post-production to deliver video that captures attention and drives engagement across platforms.",
-    image: null, // video placeholder
+    image: null,
     imageAlt: "",
     imageRight: false,
   },
@@ -51,7 +53,7 @@ export default function Services() {
         const mediaBlock = service.image ? (
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg shadow-md">
             <Image
-              src={service.image}
+              src={`${BASE}${service.image}`}
               alt={service.imageAlt}
               fill
               className="object-cover"
@@ -59,25 +61,10 @@ export default function Services() {
             />
           </div>
         ) : (
-          /* Video placeholder */
           <div className="flex aspect-video w-full items-center justify-center overflow-hidden rounded-lg bg-navy shadow-md">
             <div className="flex flex-col items-center gap-3 text-white/60">
-              {/* Play icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-16 w-16 text-teal/70"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="11"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  className="text-teal/50"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-16 w-16 text-teal/70">
+                <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-teal/50" />
                 <path d="M10 8.5l6 3.5-6 3.5V8.5z" />
               </svg>
               <span className="text-sm">Video coming soon</span>
@@ -97,21 +84,12 @@ export default function Services() {
         );
 
         return (
-          <div
-            key={service.id}
-            className={isGray ? "bg-gray-50" : "bg-white"}
-          >
+          <div key={service.id} className={isGray ? "bg-gray-50" : "bg-white"}>
             <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 lg:gap-20 lg:px-10 lg:py-20">
               {service.imageRight ? (
-                <>
-                  {textBlock}
-                  {mediaBlock}
-                </>
+                <>{textBlock}{mediaBlock}</>
               ) : (
-                <>
-                  {mediaBlock}
-                  {textBlock}
-                </>
+                <>{mediaBlock}{textBlock}</>
               )}
             </div>
           </div>

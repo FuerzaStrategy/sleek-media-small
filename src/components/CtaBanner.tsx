@@ -1,5 +1,7 @@
-import Image from "@/components/Image";
+import Image from "next/image";
 import Link from "next/link";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function CtaBanner() {
   return (
@@ -7,9 +9,8 @@ export default function CtaBanner() {
       id="contact"
       className="relative flex items-center justify-center py-28 text-center"
     >
-      {/* Background — next/image handles basePath automatically */}
       <Image
-        src="/images/hero.png"
+        src={`${BASE}/images/hero.png`}
         alt=""
         fill
         className="object-cover object-center"

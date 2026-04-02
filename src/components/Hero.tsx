@@ -1,21 +1,20 @@
-import Image from "@/components/Image";
+import Image from "next/image";
 import Link from "next/link";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-[680px] items-center justify-center overflow-hidden text-center">
-      {/* Background — next/image handles basePath automatically */}
       <Image
-        src="/images/hero.png"
+        src={`${BASE}/images/hero.png`}
         alt=""
         fill
         className="object-cover object-center"
         priority
       />
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-navy/80" />
 
-      {/* Content */}
       <div className="relative z-10 mx-auto max-w-3xl px-6">
         <h1 className="text-4xl font-black leading-tight text-white md:text-5xl lg:text-6xl">
           Real Growth
