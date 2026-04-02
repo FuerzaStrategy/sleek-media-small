@@ -10,15 +10,15 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
-          DEFAULT: "#00184E",
-          light: "#0d2a7a",
+          DEFAULT: "#001f60",
+          light: "#0a2e80",
         },
         teal: {
-          DEFAULT: "#007A9C",
-          dark: "#006480",
+          DEFAULT: "#008aab",
+          dark: "#006f8a",
         },
-        charcoal: "#3B3B3B",
-        "light-blue": "#B8D9E8",
+        charcoal: "#24272a",
+        "light-blue": "#b9dbe5",
       },
       fontFamily: {
         sans: ["var(--font-source-sans)", "system-ui", "sans-serif"],
