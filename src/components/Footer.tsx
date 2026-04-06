@@ -53,19 +53,19 @@ export default function Footer() {
 
         <div className="flex flex-col items-center gap-6 md:items-end">
           <ul className="flex gap-8">
-            {["Plans", "Work", "Contact"].map((item) => (
-              <li key={item}>
+            {[["Plans", "/plans"], ["Work", "/work"], ["Contact", "/contact"]].map(([label, href]) => (
+              <li key={label}>
                 <Link
-                  href={`#${item.toLowerCase()}`}
+                  href={href}
                   className="text-sm font-semibold text-white/70 transition hover:text-teal"
                 >
-                  {item}
+                  {label}
                 </Link>
               </li>
             ))}
           </ul>
           <Link
-            href="#contact"
+            href="/contact"
             className="rounded-md bg-teal px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-dark"
           >
             Get Started

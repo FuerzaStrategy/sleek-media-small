@@ -6,6 +6,12 @@ import { useState } from "react";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
+const navLinks = [
+  { label: "Plans", href: "/plans" },
+  { label: "Work", href: "/work" },
+  { label: "Contact", href: "/contact" },
+];
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -23,20 +29,20 @@ export default function Navbar() {
         </Link>
 
         <ul className="hidden items-center gap-10 md:flex">
-          {["Plans", "Work", "Contact"].map((item) => (
-            <li key={item}>
+          {navLinks.map(({ label, href }) => (
+            <li key={label}>
               <Link
-                href={`#${item.toLowerCase()}`}
+                href={href}
                 className="text-sm font-semibold text-white/90 transition hover:text-teal"
               >
-                {item}
+                {label}
               </Link>
             </li>
           ))}
         </ul>
 
         <Link
-          href="#contact"
+          href="/contact"
           className="hidden rounded-md bg-teal px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-dark md:inline-block"
         >
           Get Started
@@ -56,20 +62,20 @@ export default function Navbar() {
       {menuOpen && (
         <div className="bg-navy px-6 pb-6 md:hidden">
           <ul className="flex flex-col gap-4">
-            {["Plans", "Work", "Contact"].map((item) => (
-              <li key={item}>
+            {navLinks.map(({ label, href }) => (
+              <li key={label}>
                 <Link
-                  href={`#${item.toLowerCase()}`}
+                  href={href}
                   className="block text-lg font-semibold text-white"
                   onClick={() => setMenuOpen(false)}
                 >
-                  {item}
+                  {label}
                 </Link>
               </li>
             ))}
             <li>
               <Link
-                href="#contact"
+                href="/contact"
                 className="mt-2 inline-block rounded-md bg-teal px-5 py-2.5 text-sm font-semibold text-white"
                 onClick={() => setMenuOpen(false)}
               >
