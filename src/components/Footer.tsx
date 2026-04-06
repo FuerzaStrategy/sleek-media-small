@@ -3,13 +3,13 @@ import Link from "next/link";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-export default function Footer({ showHero = false }: { showHero?: boolean }) {
+export default function Footer({ heroSrc }: { heroSrc?: string }) {
   return (
     <footer>
-      {showHero && (
+      {heroSrc && (
         <div className="relative h-64 w-full md:h-80 lg:h-96">
           <Image
-            src={`${BASE}/images/plans/plans_footer_hero.png`}
+            src={`${BASE}${heroSrc}`}
             alt=""
             fill
             className="object-cover object-center"

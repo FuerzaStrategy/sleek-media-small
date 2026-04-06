@@ -18,7 +18,7 @@ export default function PlansPage() {
       <PlansHero />
       <PlansTiers />
       <CtaBanner />
-      <Footer showHero />
+      <Footer heroSrc="/images/plans/plans_footer_hero.png" />
     </main>
   );
 }
