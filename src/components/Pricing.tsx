@@ -6,7 +6,7 @@ const plans = [
   {
     name: "Visibility Boost",
     price: "$850",
-    icon: "/images/visibility_boost_icon.svg",
+    icon: "/images/home/visibility_boost_icon.svg",
     features: [
       "2 social media video posts",
       "4-8 social media photo posts",
@@ -18,7 +18,7 @@ const plans = [
   {
     name: "Growth Builder",
     price: "$1,400",
-    icon: "/images/growth_builder_icon.svg",
+    icon: "/images/home/growth_builder_icon.svg",
     features: [
       "4-6 social media video posts",
       "8-10 social media photo posts",
@@ -31,7 +31,7 @@ const plans = [
   {
     name: "Local Impact Pro",
     price: "$2,250",
-    icon: "/images/local_impact_icon.svg",
+    icon: "/images/home/local_impact_icon.svg",
     features: [
       "18-22 social media posts",
       "Weekly email",
@@ -44,7 +44,7 @@ const plans = [
   {
     name: "Brand Amplifier",
     price: "$3,500",
-    icon: "/images/brand_amplifier_icon.svg",
+    icon: "/images/home/brand_amplifier_icon.svg",
     features: [
       "Micro influencer marketing",
       "Advanced strategy",

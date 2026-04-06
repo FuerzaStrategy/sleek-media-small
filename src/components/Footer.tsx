@@ -21,7 +21,7 @@ export default function Footer({ heroSrc }: { heroSrc?: string }) {
         <div className="flex flex-col items-center gap-4 md:items-start">
           <Link href="/">
             <Image
-              src={`${BASE}/images/sleek-light.svg`}
+              src={`${BASE}/images/home/sleek-light.svg`}
               alt="Sleek Media"
               width={110}
               height={36}

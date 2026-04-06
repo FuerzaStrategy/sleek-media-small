@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-[680px] items-center justify-center overflow-hidden text-center">
       <Image
-        src={`${BASE}/images/hero.png`}
+        src={`${BASE}/images/home/hero.png`}
         alt=""
         fill
         className="object-cover object-center"
