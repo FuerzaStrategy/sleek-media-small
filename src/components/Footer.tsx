@@ -16,19 +16,22 @@ export default function Footer({ heroSrc }: { heroSrc?: string }) {
           />
         </div>
       )}
-      <div className="bg-navy py-10">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-6 md:flex-row md:justify-between lg:px-10">
-        <div className="flex flex-col items-center gap-4 md:items-start">
-          <Link href="/">
+
+      <div className="bg-navy py-5">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 lg:px-10">
+
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0">
             <Image
               src={`${BASE}/images/home/sleek-light.svg`}
               alt="Sleek Media"
-              width={110}
-              height={36}
+              width={90}
+              height={30}
             />
           </Link>
 
-          <div className="flex items-center gap-4">
+          {/* Social + handle */}
+          <div className="flex items-center gap-3">
             <a
               href="https://facebook.com/SleekMedia"
               target="_blank"
@@ -54,35 +57,18 @@ export default function Footer({ heroSrc }: { heroSrc?: string }) {
             <span className="text-sm text-white/50">@SleekMedia</span>
           </div>
 
-          <p className="text-xs text-white/40">
-            © Sleek Media 2026 &nbsp;|&nbsp;{" "}
-            <Link href="/privacy" className="transition hover:text-white/70">
-              Privacy Policy
-            </Link>
-          </p>
-        </div>
+          {/* Copyright + nav */}
+          <div className="flex flex-wrap items-center gap-4 text-xs text-white/40">
+            <span>© Sleek Media 2026</span>
+            <span className="text-white/20">|</span>
+            <Link href="/privacy" className="transition hover:text-white/70">Privacy Policy</Link>
+            <span className="text-white/20">|</span>
+            <Link href="/plans" className="transition hover:text-white/70">Plans</Link>
+            <Link href="/work" className="transition hover:text-white/70">Work</Link>
+            <Link href="/contact" className="transition hover:text-white/70">Contact</Link>
+          </div>
 
-        <div className="flex flex-col items-center gap-6 md:items-end">
-          <ul className="flex gap-8">
-            {[["Plans", "/plans"], ["Work", "/work"], ["Contact", "/contact"]].map(([label, href]) => (
-              <li key={label}>
-                <Link
-                  href={href}
-                  className="text-sm font-semibold text-white/70 transition hover:text-teal"
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/contact"
-            className="rounded-md bg-teal px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-dark"
-          >
-            Get Started
-          </Link>
         </div>
-      </div>
       </div>
     </footer>
   );

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import Script from "next/script";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -45,46 +48,61 @@ const services = [
   },
 ];
 
+const vimeoEmbed = (
+  <div className="w-full">
+    <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+      <iframe
+        src="https://player.vimeo.com/video/858841707?badge=0&autopause=0&player_id=0&app_id=58479"
+        frameBorder={0}
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+        title="Restaurant Sizzle | Passaic County, NJ"
+      />
+    </div>
+  </div>
+);
+
 export default function Services() {
   return (
-    <section id="work" className="py-4">
+    <section
+      id="work"
+      className="py-4"
+      style={{ backgroundImage: `url(${BASE}/images/home/background.png)`, backgroundSize: "cover", backgroundPosition: "center" }}
+    >
+      <Script src="https://player.vimeo.com/api/player.js" strategy="lazyOnload" />
+
       {services.map((service, index) => {
         const isGray = index % 2 !== 0;
+
         const mediaBlock = service.image ? (
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg shadow-md">
+          <div className="w-full">
             <Image
               src={`${BASE}${service.image}`}
               alt={service.imageAlt}
-              fill
-              className="object-cover"
+              width={800}
+              height={600}
+              className="h-auto w-full object-contain"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
         ) : (
-          <div className="flex aspect-video w-full items-center justify-center overflow-hidden rounded-lg bg-navy shadow-md">
-            <div className="flex flex-col items-center gap-3 text-white/60">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-16 w-16 text-teal/70">
-                <circle cx="12" cy="12" r="11" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-teal/50" />
-                <path d="M10 8.5l6 3.5-6 3.5V8.5z" />
-              </svg>
-              <span className="text-sm">Video coming soon</span>
-            </div>
-          </div>
+          vimeoEmbed
         );
 
         const textBlock = (
           <div className="flex flex-col justify-center">
-            <h2 className="text-2xl font-bold text-navy md:text-3xl">
+            <h2 className="text-2xl font-black text-navy md:text-3xl">
               {service.title}
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-gray-600">
+            <p className="mt-4 text-lg leading-relaxed text-gray-600">
               {service.body}
             </p>
           </div>
         );
 
         return (
-          <div key={service.id} className={isGray ? "bg-gray-50" : "bg-white"}>
+          <div key={service.id} className={isGray ? "bg-white/80" : "bg-white/60"}>
             <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 lg:gap-20 lg:px-10 lg:py-20">
               {service.imageRight ? (
                 <>{textBlock}{mediaBlock}</>
