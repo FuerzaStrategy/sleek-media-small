@@ -48,32 +48,21 @@ const services = [
   },
 ];
 
-const vimeoEmbed = (
-  <div className="w-full">
-    <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
-      <iframe
-        src="https://player.vimeo.com/video/858841707?badge=0&autopause=0&player_id=0&app_id=58479"
-        frameBorder={0}
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-        title="Restaurant Sizzle | Passaic County, NJ"
-      />
-    </div>
-  </div>
-);
-
 export default function Services() {
   return (
-    <section
-      id="work"
-      className="py-4"
-      style={{ backgroundImage: `url(${BASE}/images/home/background.png)`, backgroundSize: "cover", backgroundPosition: "center" }}
-    >
+    <section id="work" className="relative py-4">
+      {/* Background image */}
+      <Image
+        src={`${BASE}/images/home/background.png`}
+        alt=""
+        fill
+        className="-z-10 object-cover object-center"
+      />
+
       <Script src="https://player.vimeo.com/api/player.js" strategy="lazyOnload" />
 
       {services.map((service, index) => {
-        const isGray = index % 2 !== 0;
+        const isAlt = index % 2 !== 0;
 
         const mediaBlock = service.image ? (
           <div className="w-full">
@@ -87,7 +76,20 @@ export default function Services() {
             />
           </div>
         ) : (
-          vimeoEmbed
+          /* Vimeo — autoplay, muted, loop */
+          <div className="w-full">
+            <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+              <iframe
+                src="https://player.vimeo.com/video/858841707?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1"
+                frameBorder={0}
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                title="Restaurant Sizzle | Passaic County, NJ"
+              />
+            </div>
+          </div>
         );
 
         const textBlock = (
@@ -102,7 +104,7 @@ export default function Services() {
         );
 
         return (
-          <div key={service.id} className={isGray ? "bg-white/80" : "bg-white/60"}>
+          <div key={service.id} className={isAlt ? "bg-white/75" : "bg-white/50"}>
             <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 lg:gap-20 lg:px-10 lg:py-20">
               {service.imageRight ? (
                 <>{textBlock}{mediaBlock}</>

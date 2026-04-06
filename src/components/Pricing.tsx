@@ -62,7 +62,7 @@ export default function Pricing() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className="flex flex-col items-center rounded-xl border border-gray-100 bg-white p-8 shadow-sm text-center"
+              className="flex flex-col items-center rounded-xl border border-gray-100 bg-white p-8 shadow-sm text-center transition-transform duration-300 hover:scale-105 hover:shadow-md cursor-pointer"
             >
               <div className="mb-5 flex h-16 w-16 items-center justify-center">
                 <Image

@@ -10,7 +10,7 @@ export default function CtaBanner() {
       className="relative flex items-center justify-center py-28 text-center"
     >
       <Image
-        src={`${BASE}/images/home/hero.png`}
+        src={`${BASE}/images/home/footer_hero.png`}
         alt=""
         fill
         className="object-cover object-center"
