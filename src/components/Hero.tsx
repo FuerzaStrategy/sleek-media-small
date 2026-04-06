@@ -36,7 +36,7 @@ export default function Hero() {
 
           <button
             onClick={() => setModalOpen(true)}
-            className="mt-10 inline-block rounded-md bg-light-blue px-10 py-4 text-base font-bold text-navy transition hover:brightness-110"
+            className="mt-10 inline-block rounded-md bg-light-blue px-10 py-4 text-base font-bold text-navy transition hover:brightness-110 hover:animate-shake"
           >
             Let&apos;s Get to Work
           </button>

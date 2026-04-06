@@ -38,14 +38,14 @@ export default function Navbar() {
               <Link
                 key={label}
                 href={href}
-                className="text-sm font-semibold text-navy/80 transition hover:text-teal"
+                className="text-base font-semibold text-navy/80 transition hover:text-teal"
               >
                 {label}
               </Link>
             ))}
             <button
               onClick={() => setModalOpen(true)}
-              className="rounded-md bg-teal px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-dark"
+              className="rounded-md bg-teal px-5 py-2.5 text-base font-semibold text-white transition hover:bg-teal-dark hover:scale-105"
             >
               Get Started
             </button>
