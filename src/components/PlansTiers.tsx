@@ -17,16 +17,10 @@ const tiers = [
       "Quarterly strategy call (30 mins)",
       "Canva design template (branded)",
     ],
-    icons: (
-      <div className="mt-6 flex items-center gap-2">
-        {/* Adobe Illustrator */}
-        <span className="flex h-8 w-8 items-center justify-center rounded bg-[#FF7C00] text-[10px] font-black text-white">Ai</span>
-        {/* Adobe Photoshop */}
-        <span className="flex h-8 w-8 items-center justify-center rounded bg-[#31A8FF] text-[10px] font-black text-white">Ps</span>
-        {/* Adobe After Effects */}
-        <span className="flex h-8 w-8 items-center justify-center rounded bg-[#9999FF] text-[10px] font-black text-white">Ae</span>
-      </div>
-    ),
+    iconSrc: "/images/plans/adobe_creative_suite_icons.png",
+    iconAlt: "Adobe Creative Suite",
+    iconWidth: 160,
+    iconHeight: 40,
   },
   {
     number: "Tier 2",
@@ -43,14 +37,10 @@ const tiers = [
       "Engagement & Growth Review",
       "Dedicated Account Manager",
     ],
-    icons: (
-      <div className="mt-6">
-        {/* Video/camera icon */}
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-navy">
-          <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
-        </svg>
-      </div>
-    ),
+    iconSrc: "/images/plans/tier_2_icon.svg",
+    iconAlt: "Tier 2 icon",
+    iconWidth: 48,
+    iconHeight: 48,
   },
   {
     number: "Tier 3",
@@ -67,14 +57,10 @@ const tiers = [
       "1 custom video/month (30-60 sec reel)",
       "Up to 3 promotional assets per month",
     ],
-    icons: (
-      <div className="mt-6">
-        {/* Email/envelope icon */}
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-8 w-8 text-navy">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-        </svg>
-      </div>
-    ),
+    iconSrc: "/images/plans/tier_3_icon.svg",
+    iconAlt: "Tier 3 icon",
+    iconWidth: 48,
+    iconHeight: 48,
   },
   {
     number: "Tier 4",
@@ -92,17 +78,14 @@ const tiers = [
       "Advanced strategy session + creative planning",
       "Optional Meta ad management",
     ],
-    icons: (
-      <div className="mt-6 flex items-center gap-3">
-        {/* Meta badge */}
-        <span className="flex items-center gap-1 rounded border border-gray-200 px-2 py-1 text-[10px] font-semibold text-gray-500">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3 text-[#1877F2]">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-          Meta Partner
-        </span>
-      </div>
-    ),
+    iconSrc: null,
+    iconAlt: null,
+    iconWidth: 0,
+    iconHeight: 0,
+    badgeIcons: [
+      { src: "/images/plans/Meta_Business_Partner.png", alt: "Meta Business Partner", width: 120, height: 40 },
+      { src: "/images/plans/Google_Partner.png", alt: "Google Partner", width: 120, height: 40 },
+    ],
   },
 ];
 
@@ -138,7 +121,30 @@ export default function PlansTiers() {
               ))}
             </ul>
 
-            {tier.icons}
+            {"badgeIcons" in tier && tier.badgeIcons ? (
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                {tier.badgeIcons.map((badge) => (
+                  <Image
+                    key={badge.alt}
+                    src={`${BASE}${badge.src}`}
+                    alt={badge.alt}
+                    width={badge.width}
+                    height={badge.height}
+                    className="object-contain"
+                  />
+                ))}
+              </div>
+            ) : tier.iconSrc ? (
+              <div className="mt-6">
+                <Image
+                  src={`${BASE}${tier.iconSrc}`}
+                  alt={tier.iconAlt ?? ""}
+                  width={tier.iconWidth}
+                  height={tier.iconHeight}
+                  className="object-contain"
+                />
+              </div>
+            ) : null}
           </div>
         );
 

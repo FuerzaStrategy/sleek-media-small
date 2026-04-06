@@ -16,11 +16,11 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link href="/" className="flex items-center">
           <Image
-            src={`${BASE}/images/sleek-light.svg`}
+            src={`${BASE}/images/sleek-dark.svg`}
             alt="Sleek Media"
             width={120}
             height={40}
@@ -33,7 +33,7 @@ export default function Navbar() {
             <li key={label}>
               <Link
                 href={href}
-                className="text-sm font-semibold text-white/90 transition hover:text-teal"
+                className="text-sm font-semibold text-navy/80 transition hover:text-teal"
               >
                 {label}
               </Link>
@@ -53,9 +53,9 @@ export default function Navbar() {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <span className="block h-0.5 w-6 bg-white" />
-          <span className="block h-0.5 w-6 bg-white" />
-          <span className="block h-0.5 w-6 bg-white" />
+          <span className="block h-0.5 w-6 bg-navy" />
+          <span className="block h-0.5 w-6 bg-navy" />
+          <span className="block h-0.5 w-6 bg-navy" />
         </button>
       </nav>
 

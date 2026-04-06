@@ -3,9 +3,20 @@ import Link from "next/link";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-export default function Footer() {
+export default function Footer({ showHero = false }: { showHero?: boolean }) {
   return (
-    <footer className="bg-navy py-10">
+    <footer>
+      {showHero && (
+        <div className="relative h-64 w-full md:h-80 lg:h-96">
+          <Image
+            src={`${BASE}/images/plans/plans_footer_hero.png`}
+            alt=""
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+      )}
+      <div className="bg-navy py-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-6 md:flex-row md:justify-between lg:px-10">
         <div className="flex flex-col items-center gap-4 md:items-start">
           <Link href="/">
@@ -71,6 +82,7 @@ export default function Footer() {
             Get Started
           </Link>
         </div>
+      </div>
       </div>
     </footer>
   );

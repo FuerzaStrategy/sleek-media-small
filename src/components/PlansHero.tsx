@@ -6,7 +6,7 @@ export default function PlansHero() {
   return (
     <>
       {/* Hero */}
-      <section className="relative flex min-h-[400px] items-center justify-center text-center overflow-hidden">
+      <section className="relative flex min-h-[600px] items-center justify-center text-center overflow-hidden">
         <Image
           src={`${BASE}/images/plans/plans_hero.png`}
           alt=""
