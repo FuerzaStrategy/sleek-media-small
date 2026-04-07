@@ -12,12 +12,13 @@ export default function WorkHero() {
         className="object-cover object-center"
         priority
       />
-      <div className="absolute inset-0 bg-navy/75" />
       <div className="relative z-10 px-6">
         <h1 className="text-4xl font-black text-white md:text-5xl lg:text-6xl">
-          Our{" "}
-          <span className="text-teal">Work</span>
+          Our Work
         </h1>
+        <p className="mt-4 text-3xl font-semibold text-white md:text-4xl lg:text-5xl">
+          Proven to <span style={{ color: "#AAD3DF" }}>Grow</span>
+        </p>
       </div>
     </section>
   );

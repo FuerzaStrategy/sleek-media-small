@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import Script from "next/script";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
@@ -8,6 +11,9 @@ const cases = [
     headerImage: "/images/work/county_of_passaic_Header.png",
     headerAlt: "Passaic County social media collage",
     videoRight: true,
+    vimeoSrc: "https://player.vimeo.com/video/858841125?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
+    vimeoRatio: "56.25%",
+    vimeoTitle: "Restaurants | Passaic County, NJ",
     paragraphs: [
       "Our partnership with the Passaic County Department of Cultural and Historic Affairs has been creating content and managing day-to-day operations of social media. Since taking over the social channels, the assets have experienced explosive, organic growth. This has been the direct result of scroll-stopping content that has reached through layers of social networks, engaging new audiences.",
       "As part of our social media management, we launched an influencer program that showcases historic sites, restaurants, and events across Passaic County. As a result, we have developed new relationships with local businesses, further supporting the tourism work led by the department and increasing overall content reach.",
@@ -22,6 +28,9 @@ const cases = [
     headerImage: "/images/work/destination_ridgewood_header.png",
     headerAlt: "Destination Ridgewood social media collage",
     videoRight: false,
+    vimeoSrc: "https://player.vimeo.com/video/858836948?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
+    vimeoRatio: "177.78%",
+    vimeoTitle: "Restaurants on the Pedestrian Plaza | Destination Ridgewood",
     paragraphs: [
       "The Village of Ridgewood has faced a challenge similar to many other downtown business districts in northern New Jersey. As the municipality began exploring a new Special Improvement District (SID) eligible for state grants and programs, members of the local business community wanted to showcase how collaboration between organizations could support overall growth.",
       "Fuerza was brought in to define a brand and vision for the future SID and lead a three-month pilot marketing program that reached into surrounding communities for the return of the Pedestrian Plaza. The marketing trial demonstrated the viability for the SID and further work is being performed to establish the underlying organizational structure by the municipal government.",
@@ -33,41 +42,54 @@ const cases = [
   },
 ];
 
-function VideoReel() {
-  return (
-    <div className="flex h-full min-h-[320px] items-center justify-center bg-gray-900">
-      <p className="text-sm font-bold uppercase tracking-[0.25em] text-white/40">
-        Video Reel
-      </p>
-    </div>
-  );
-}
-
 export default function WorkCaseStudies() {
   return (
     <>
+      <Script src="https://player.vimeo.com/api/player.js" strategy="lazyOnload" />
+
       {/* Who We Are */}
       <section className="mx-auto max-w-4xl px-6 py-16 lg:px-10">
         <h2 className="text-3xl font-black text-navy md:text-4xl">
           Who <span className="text-teal">We</span> Are
         </h2>
         <p className="mt-4 text-base leading-relaxed text-gray-700">
-          Sleek Media is powered by the award-winning team at Fuerza Strategy Group — a creative
-          and strategic agency that&apos;s helped local businesses, nonprofits, and public agencies tell
-          their stories and grow their impact.
+          Sleek Media is powered by an award-winning team of creatives and strategists. We&apos;ve
+          helped local businesses, nonprofits, and public agencies tell their stories and grow
+          their impact.
         </p>
         <p className="mt-4 text-base leading-relaxed text-gray-700">
-          We created Sleek to give small and local businesses an affordable, dependable way to stay
-          visible in their communities — without needing to hire an entire marketing team. When you
-          subscribe, you get more than just content. You get a team of professionals who understand
-          your audience, your goals, and what makes you unique.
+          We created Sleek to give small and local businesses an affordable, dependable way to
+          stay visible in their communities — without needing to hire an entire marketing team.
+          When you subscribe, you get more than just content. You get a team of professionals who
+          understand your audience, your goals, and what makes you unique.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-gray-700">
+          Our team is US-based, in the communities we serve.
         </p>
       </section>
 
       {/* Case Studies */}
       {cases.map((c) => {
+        const videoEmbed = (
+          <div className="flex items-center justify-center bg-gray-900 p-6">
+            <div className="w-full">
+              <div style={{ padding: `${c.vimeoRatio} 0 0 0`, position: "relative" }}>
+                <iframe
+                  src={c.vimeoSrc}
+                  frameBorder={0}
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                  title={c.vimeoTitle}
+                />
+              </div>
+            </div>
+          </div>
+        );
+
         const textBlock = (
-          <div className="flex flex-col justify-center px-8 py-14 lg:px-14 lg:py-16">
+          <div className="flex flex-col justify-center px-12 py-14 lg:px-16 lg:py-16">
             <h2 className="text-2xl font-black text-navy md:text-3xl">{c.name}</h2>
             {c.paragraphs.map((p, i) => (
               <p key={i} className="mt-4 text-sm leading-relaxed text-gray-700">
@@ -102,18 +124,12 @@ export default function WorkCaseStudies() {
               />
             </div>
 
-            {/* Text + Video Reel */}
+            {/* Text + Video */}
             <div className="grid grid-cols-1 md:grid-cols-2">
               {c.videoRight ? (
-                <>
-                  {textBlock}
-                  <VideoReel />
-                </>
+                <>{textBlock}{videoEmbed}</>
               ) : (
-                <>
-                  <VideoReel />
-                  {textBlock}
-                </>
+                <>{videoEmbed}{textBlock}</>
               )}
             </div>
           </section>
