@@ -4,12 +4,20 @@ const faqs = [
     a: "Each month, we deliver the creative assets and services based on your selected tier. You can upgrade, pause, or cancel with 30 days' notice.",
   },
   {
+    q: "What does the on-boarding process look like?",
+    a: "After you sign up, we work through a collaborative on-boarding process that helps us get access to your marketing channels, understand your brand and voice, and prepare to roll out content. This full process can take up to two weeks and require approximately 3-10 hours of your time depending on the level of service.",
+  },
+  {
     q: "Can I request revisions?",
     a: "Yes — each tier includes at least one round of revisions. We want you to love what we create.",
   },
   {
     q: "How long is the commitment?",
     a: "Most clients stay with us for 6–12 months, but our subscriptions are month-to-month.",
+  },
+  {
+    q: "Can you work with me outside of the tristate?",
+    a: "Of course! As with all of our plans, we'll utilize your team and our partners to execute scroll-stopping photo and video remotely. For higher tiers, we'll schedule quarterly shoots on-site.",
   },
 ];
 
