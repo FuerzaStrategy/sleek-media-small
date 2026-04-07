@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <header className="sticky top-0 z-50 bg-white shadow-sm relative">
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
           {/* Logo */}
           <Link href="/" className="flex items-center">
@@ -63,7 +63,7 @@ export default function Navbar() {
         </nav>
 
         {menuOpen && (
-          <div className="bg-navy px-6 pb-6 md:hidden">
+          <div className="absolute left-0 right-0 top-full bg-navy px-6 pb-6 shadow-lg md:hidden">
             <ul className="flex flex-col gap-4">
               {navLinks.map(({ label, href }) => (
                 <li key={label}>
