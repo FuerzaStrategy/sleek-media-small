@@ -13,14 +13,16 @@ const cases = [
     videoRight: true,
     vimeoSrc: "https://player.vimeo.com/video/858841125?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
     vimeoRatio: "56.25%",
+    vimeoMaxWidth: "100%",
     vimeoTitle: "Restaurants | Passaic County, NJ",
     paragraphs: [
       "Our partnership with the Passaic County Department of Cultural and Historic Affairs has been creating content and managing day-to-day operations of social media. Since taking over the social channels, the assets have experienced explosive, organic growth. This has been the direct result of scroll-stopping content that has reached through layers of social networks, engaging new audiences.",
       "As part of our social media management, we launched an influencer program that showcases historic sites, restaurants, and events across Passaic County. As a result, we have developed new relationships with local businesses, further supporting the tourism work led by the department and increasing overall content reach.",
     ],
     stats: [
-      { src: "/images/work/850_percent.svg", alt: "850% growth" },
-      { src: "/images/work/3.75x_impressions.svg", alt: "3.75x impressions" },
+      { src: "/images/work/850_percent.png", alt: "850% increase in reach", width: 100, height: 100 },
+      { src: "/images/work/organic_impressions.png", alt: "3.75x organic impressions", width: 100, height: 100 },
+      { src: "/images/work/influencer_program.png", alt: "Influencer program", width: 100, height: 100 },
     ],
   },
   {
@@ -30,14 +32,15 @@ const cases = [
     videoRight: false,
     vimeoSrc: "https://player.vimeo.com/video/858836948?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
     vimeoRatio: "177.78%",
+    vimeoMaxWidth: "280px",
     vimeoTitle: "Restaurants on the Pedestrian Plaza | Destination Ridgewood",
     paragraphs: [
       "The Village of Ridgewood has faced a challenge similar to many other downtown business districts in northern New Jersey. As the municipality began exploring a new Special Improvement District (SID) eligible for state grants and programs, members of the local business community wanted to showcase how collaboration between organizations could support overall growth.",
-      "Fuerza was brought in to define a brand and vision for the future SID and lead a three-month pilot marketing program that reached into surrounding communities for the return of the Pedestrian Plaza. The marketing trial demonstrated the viability for the SID and further work is being performed to establish the underlying organizational structure by the municipal government.",
+      "Our team was brought in to define a brand and voice for the future SID and lead a three-month paid marketing program that reached into surrounding communities for the return of the Pedestrian Plaza. The marketing trial determined the viability for the SID and further work is being performed to establish the underlying organizational structure by the municipal government.",
     ],
     stats: [
-      { src: "/images/work/5x_engagement.svg", alt: "5x engagement" },
-      { src: "/images/work/20_percent_growth.svg", alt: "20% growth" },
+      { src: "/images/work/5x_engagement.png", alt: "5x engagement", width: 100, height: 100 },
+      { src: "/images/work/20_percent.png", alt: "20% growth", width: 100, height: 100 },
     ],
   },
 ];
@@ -71,8 +74,8 @@ export default function WorkCaseStudies() {
       {/* Case Studies */}
       {cases.map((c) => {
         const videoEmbed = (
-          <div className="flex items-center justify-center bg-gray-900 p-6">
-            <div className="w-full">
+          <div className="flex items-center justify-center bg-gray-900 p-8">
+            <div style={{ width: "100%", maxWidth: c.vimeoMaxWidth }}>
               <div style={{ padding: `${c.vimeoRatio} 0 0 0`, position: "relative" }}>
                 <iframe
                   src={c.vimeoSrc}
@@ -102,8 +105,8 @@ export default function WorkCaseStudies() {
                   key={s.alt}
                   src={`${BASE}${s.src}`}
                   alt={s.alt}
-                  width={100}
-                  height={80}
+                  width={s.width}
+                  height={s.height}
                   className="object-contain"
                 />
               ))}
@@ -113,7 +116,6 @@ export default function WorkCaseStudies() {
 
         return (
           <section key={c.name}>
-            {/* Full-width header image */}
             <div className="relative h-72 w-full md:h-96">
               <Image
                 src={`${BASE}${c.headerImage}`}
@@ -124,7 +126,6 @@ export default function WorkCaseStudies() {
               />
             </div>
 
-            {/* Text + Video */}
             <div className="grid grid-cols-1 md:grid-cols-2">
               {c.videoRight ? (
                 <>{textBlock}{videoEmbed}</>

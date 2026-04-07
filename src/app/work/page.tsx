@@ -18,7 +18,7 @@ export default function WorkPage() {
       <WorkHero />
       <WorkCaseStudies />
       <CtaBanner />
-      <Footer heroSrc="/images/work/footer_hero_work.png" />
+      <Footer />
     </main>
   );
 }
