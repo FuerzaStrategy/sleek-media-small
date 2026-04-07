@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 import ContactModal from "@/components/ContactModal";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const navLinks = [
   { label: "Plans", href: "/plans" },
@@ -24,7 +23,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src={`${BASE}/images/home/sleek-dark.svg`}
+              src={`/images/home/sleek-dark.svg`}
               alt="Sleek Media"
               width={120}
               height={40}

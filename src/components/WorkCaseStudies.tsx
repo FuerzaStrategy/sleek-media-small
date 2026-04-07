@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Script from "next/script";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const cases = [
   {
@@ -103,7 +102,7 @@ export default function WorkCaseStudies() {
               {c.stats.map((s) => (
                 <Image
                   key={s.alt}
-                  src={`${BASE}${s.src}`}
+                  src={`${s.src}`}
                   alt={s.alt}
                   width={s.width}
                   height={s.height}
@@ -118,7 +117,7 @@ export default function WorkCaseStudies() {
           <section key={c.name}>
             <div className="relative h-[400px] w-full md:h-[540px]">
               <Image
-                src={`${BASE}${c.headerImage}`}
+                src={`${c.headerImage}`}
                 alt={c.headerAlt}
                 fill
                 className="object-cover object-center"

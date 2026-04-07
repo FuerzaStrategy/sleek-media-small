@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { FormEvent, useState } from "react";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const JOTFORM_SUBMIT_URL = "https://submit.jotform.com/submit/260965828748072/";
 
 export default function ContactHero() {
@@ -34,7 +33,7 @@ export default function ContactHero() {
     <section className="relative overflow-hidden">
       {/* Background */}
       <Image
-        src={`${BASE}/images/contact/contact_hero.png`}
+        src={`/images/contact/contact_hero.png`}
         alt=""
         fill
         className="object-cover object-center"

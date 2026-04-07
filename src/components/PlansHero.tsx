@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function PlansHero() {
   return (
@@ -8,7 +7,7 @@ export default function PlansHero() {
       {/* Hero */}
       <section className="relative flex min-h-[600px] items-center justify-center text-center overflow-hidden">
         <Image
-          src={`${BASE}/images/plans/plans_hero.png`}
+          src={`/images/plans/plans_hero.png`}
           alt=""
           fill
           className="object-cover object-center"

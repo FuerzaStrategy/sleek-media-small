@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Footer({ heroSrc }: { heroSrc?: string }) {
   return (
@@ -9,7 +8,7 @@ export default function Footer({ heroSrc }: { heroSrc?: string }) {
       {heroSrc && (
         <div className="relative h-64 w-full md:h-80 lg:h-96">
           <Image
-            src={`${BASE}${heroSrc}`}
+            src={`${heroSrc}`}
             alt=""
             fill
             className="object-cover object-center"
@@ -24,7 +23,7 @@ export default function Footer({ heroSrc }: { heroSrc?: string }) {
           <div className="flex items-center gap-4">
             <Link href="/" className="flex-shrink-0">
               <Image
-                src={`${BASE}/images/home/sleek-light.svg`}
+                src={`/images/home/sleek-light.svg`}
                 alt="Sleek Media"
                 width={80}
                 height={26}

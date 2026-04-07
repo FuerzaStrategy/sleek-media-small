@@ -1,12 +1,11 @@
 import Image from "next/image";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function WorkHero() {
   return (
     <section className="relative flex min-h-[500px] items-center justify-center overflow-hidden text-center">
       <Image
-        src={`${BASE}/images/work/hero_work.png`}
+        src={`/images/work/hero_work.png`}
         alt=""
         fill
         className="object-cover object-center"

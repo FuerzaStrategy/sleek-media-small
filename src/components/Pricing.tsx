@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const plans = [
   {
@@ -66,7 +65,7 @@ export default function Pricing() {
             >
               <div className="mb-5 flex h-16 w-16 items-center justify-center">
                 <Image
-                  src={`${BASE}${plan.icon}`}
+                  src={`${plan.icon}`}
                   alt={`${plan.name} icon`}
                   width={56}
                   height={56}

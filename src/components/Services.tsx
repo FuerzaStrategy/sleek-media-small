@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Script from "next/script";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const services = [
   {
@@ -53,7 +52,7 @@ export default function Services() {
     <section id="work" className="relative py-4">
       {/* Background image */}
       <Image
-        src={`${BASE}/images/home/background.png`}
+        src={`/images/home/background.png`}
         alt=""
         fill
         className="-z-10 object-cover object-center"
@@ -67,7 +66,7 @@ export default function Services() {
         const mediaBlock = service.image ? (
           <div className="w-full">
             <Image
-              src={`${BASE}${service.image}`}
+              src={`${service.image}`}
               alt={service.imageAlt}
               width={800}
               height={600}

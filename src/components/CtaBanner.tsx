@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import ContactModal from "@/components/ContactModal";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function CtaBanner() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -16,7 +15,7 @@ export default function CtaBanner() {
         className="relative flex items-center justify-center py-36 text-center"
       >
         <Image
-          src={`${BASE}/images/home/footer_hero.png`}
+          src={`/images/home/footer_hero.png`}
           alt=""
           fill
           className="object-cover object-center"

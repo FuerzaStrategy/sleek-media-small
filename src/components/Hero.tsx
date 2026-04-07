@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import ContactModal from "@/components/ContactModal";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 export default function Hero() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -13,7 +12,7 @@ export default function Hero() {
     <>
       <section className="relative flex min-h-[680px] items-center justify-center overflow-hidden text-center">
         <Image
-          src={`${BASE}/images/home/hero.png`}
+          src={`/images/home/hero.png`}
           alt=""
           fill
           className="object-cover object-center"

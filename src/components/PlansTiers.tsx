@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const tiers = [
   {
@@ -124,7 +123,7 @@ export default function PlansTiers() {
                 {tier.badgeIcons.map((badge) => (
                   <Image
                     key={badge.alt}
-                    src={`${BASE}${badge.src}`}
+                    src={`${badge.src}`}
                     alt={badge.alt}
                     width={badge.width}
                     height={badge.height}
@@ -135,7 +134,7 @@ export default function PlansTiers() {
             ) : tier.iconSrc ? (
               <div className="mt-6">
                 <Image
-                  src={`${BASE}${tier.iconSrc}`}
+                  src={`${tier.iconSrc}`}
                   alt={tier.iconAlt ?? ""}
                   width={tier.iconWidth}
                   height={tier.iconHeight}
@@ -150,7 +149,7 @@ export default function PlansTiers() {
         const photo = (
           <div className="relative min-h-[625px] w-full">
             <Image
-              src={`${BASE}${tier.image}`}
+              src={`${tier.image}`}
               alt={tier.imageAlt}
               fill
               className="object-cover"
