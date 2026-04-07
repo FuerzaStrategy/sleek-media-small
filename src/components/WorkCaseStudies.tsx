@@ -92,7 +92,7 @@ export default function WorkCaseStudies() {
         );
 
         const textBlock = (
-          <div className="flex flex-col justify-center px-12 py-14 lg:px-16 lg:py-16">
+          <div className="flex flex-col justify-center px-24 py-14 lg:px-32 lg:py-16">
             <h2 className="text-2xl font-black text-navy md:text-3xl">{c.name}</h2>
             {c.paragraphs.map((p, i) => (
               <p key={i} className="mt-4 text-sm leading-relaxed text-gray-700">
@@ -116,7 +116,7 @@ export default function WorkCaseStudies() {
 
         return (
           <section key={c.name}>
-            <div className="relative h-72 w-full md:h-96">
+            <div className="relative h-[400px] w-full md:h-[540px]">
               <Image
                 src={`${BASE}${c.headerImage}`}
                 alt={c.headerAlt}
