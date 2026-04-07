@@ -83,8 +83,8 @@ const tiers = [
     iconWidth: 0,
     iconHeight: 0,
     badgeIcons: [
-      { src: "/images/plans/Meta_Business_Partner.png", alt: "Meta Business Partner", width: 120, height: 40 },
-      { src: "/images/plans/Google_Partner.png", alt: "Google Partner", width: 120, height: 40 },
+      { src: "/images/plans/Meta_Business_Partner.png", alt: "Meta Business Partner", width: 72, height: 24 },
+      { src: "/images/plans/Google_Partner.png", alt: "Google Partner", width: 72, height: 24 },
     ],
   },
 ];
@@ -95,10 +95,7 @@ export default function PlansTiers() {
       {tiers.map((tier) => {
         const content = (
           <div className="flex flex-col justify-center px-8 py-16 lg:px-16 lg:py-20">
-            <p className="text-sm font-bold uppercase tracking-widest text-teal">
-              {tier.number}
-            </p>
-            <h2 className="mt-1 text-3xl font-black text-navy md:text-4xl">
+            <h2 className="text-3xl font-black text-navy md:text-4xl">
               {tier.name}
             </h2>
             <p className="mt-2 text-2xl font-bold text-navy">
@@ -149,7 +146,7 @@ export default function PlansTiers() {
         );
 
         const photo = (
-          <div className="relative min-h-[360px] w-full md:min-h-0">
+          <div className="relative min-h-[500px] w-full">
             <Image
               src={`${BASE}${tier.image}`}
               alt={tier.imageAlt}
@@ -163,7 +160,7 @@ export default function PlansTiers() {
         return (
           <div
             key={tier.number}
-            className="grid grid-cols-1 md:grid-cols-2"
+            className="grid grid-cols-1 md:grid-cols-2 md:min-h-[500px]"
           >
             {tier.imageRight ? (
               <>{content}{photo}</>
