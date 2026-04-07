@@ -94,7 +94,8 @@ export default function PlansTiers() {
     <section>
       {tiers.map((tier) => {
         const content = (
-          <div className="flex flex-col justify-center px-8 py-16 lg:px-16 lg:py-20">
+          <div className="flex flex-col justify-center px-8 py-16 lg:px-12 lg:py-20">
+            <div className="mx-auto w-full max-w-sm">
             <h2 className="text-3xl font-black text-navy md:text-4xl">
               {tier.name}
             </h2>
@@ -142,6 +143,7 @@ export default function PlansTiers() {
                 />
               </div>
             ) : null}
+            </div>
           </div>
         );
 

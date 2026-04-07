@@ -15,13 +15,10 @@ export default function PlansHero() {
           priority
         />
         <div className="relative z-10 px-6">
-          <p className="text-xl font-black uppercase tracking-widest text-white md:text-2xl">
+          <h1 className="text-4xl font-black text-white md:text-5xl lg:text-6xl">
             Plans
-          </p>
-          <h1 className="mt-2 text-4xl font-black text-white md:text-5xl lg:text-6xl">
-            Subscription Pricing
           </h1>
-          <p className="mt-3 text-2xl font-semibold text-white md:text-3xl">
+          <p className="mt-4 text-3xl font-semibold text-white md:text-4xl lg:text-5xl">
             Focused on{" "}
             <span style={{ color: "#AAD3DF" }}>Growth</span>
           </p>
