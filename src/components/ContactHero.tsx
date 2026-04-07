@@ -1,10 +1,35 @@
+"use client";
+
 import Image from "next/image";
+import { FormEvent, useState } from "react";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
-const JOTFORM_ID = "260965828748072";
+const JOTFORM_SUBMIT_URL = "https://submit.jotform.com/submit/260965828748072/";
 
 export default function ContactHero() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    const form = e.currentTarget;
+    try {
+      const res = await fetch(JOTFORM_SUBMIT_URL, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <section className="relative overflow-hidden">
       {/* Background */}
@@ -65,18 +90,48 @@ export default function ContactHero() {
           </ul>
         </div>
 
-        {/* Right — JotForm embed */}
+        {/* Right — contact form */}
         <div className="flex items-start">
-          <iframe
-            id={`JotFormIFrame-${JOTFORM_ID}`}
-            title="Sleek Media Contact Form"
-            src={`https://form.jotform.com/${JOTFORM_ID}`}
-            frameBorder={0}
-            allow="geolocation; microphone; camera; fullscreen"
-            scrolling="yes"
-            className="w-full rounded"
-            style={{ height: "680px", border: "none", background: "transparent" }}
-          />
+          {status === "success" ? (
+            <div className="flex w-full flex-col items-center justify-center rounded-lg bg-white/10 p-12 text-center">
+              <p className="text-2xl font-black text-white">Message sent!</p>
+              <p className="mt-3 text-white/70">Thanks for reaching out. We&apos;ll be in touch shortly.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="w-full space-y-4">
+              {/* Honeypot spam prevention */}
+              <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+
+              <div className="grid grid-cols-2 gap-4">
+                <input type="text" name="q6_name" placeholder="Name" required
+                  className="w-full rounded border border-white/20 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
+                <input type="email" name="q4_email" placeholder="Email Address" required
+                  className="w-full rounded border border-white/20 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <input type="text" name="q7_companyorganizationName" placeholder="Company / Organization Name"
+                  className="w-full rounded border border-white/20 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
+                <input type="tel" name="q5_phoneNumber[full]" placeholder="Phone Number (optional)"
+                  className="w-full rounded border border-white/20 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
+              </div>
+              <select name="q8_subject" required
+                className="w-full rounded border border-white/20 bg-white px-4 py-3 text-sm text-gray-800 focus:border-teal focus:outline-none">
+                <option value="" disabled>Select a reason for reaching out…</option>
+                <option value="I'm ready to get started">I&apos;m ready to get started</option>
+                <option value="I'd like some more information">I&apos;d like some more information</option>
+                <option value="I have a question">I have a question</option>
+              </select>
+              <textarea name="q9_message" placeholder="Leave your message" rows={5} required
+                className="w-full rounded border border-white/20 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
+              {status === "error" && (
+                <p className="text-sm text-red-300">Something went wrong. Please try again or email us directly.</p>
+              )}
+              <button type="submit" disabled={status === "sending"}
+                className="rounded bg-teal px-8 py-3 text-sm font-bold uppercase tracking-widest text-white transition hover:bg-teal-dark disabled:opacity-60">
+                {status === "sending" ? "Sending…" : "Submit"}
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </section>
