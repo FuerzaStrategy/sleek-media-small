@@ -1,42 +1,10 @@
-"use client";
-
 import Image from "next/image";
-import { useState, FormEvent } from "react";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-// ─────────────────────────────────────────────────────────────
-// To enable email delivery:
-//  1. Sign up free at https://formspree.io
-//  2. Create a new form → set recipient to jason@fuerzastrategy.com
-//  3. Copy your form ID (e.g. "xpwzabcd") and replace FORMSPREE_FORM_ID below
-// ─────────────────────────────────────────────────────────────
-const FORMSPREE_FORM_ID = "YOUR_FORM_ID";
+const JOTFORM_ID = "260965828748072";
 
 export default function ContactHero() {
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("sending");
-    const form = e.currentTarget;
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  }
-
   return (
     <section className="relative overflow-hidden">
       {/* Background */}
@@ -97,51 +65,18 @@ export default function ContactHero() {
           </ul>
         </div>
 
-        {/* Right — form */}
-        <div>
-          {status === "success" ? (
-            <div className="flex h-full items-center justify-center rounded-lg bg-white/10 p-10 text-center">
-              <div>
-                <p className="text-2xl font-bold text-white">Message sent!</p>
-                <p className="mt-2 text-white/70">
-                  Thanks for reaching out. We&apos;ll be in touch shortly.
-                </p>
-              </div>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <input type="text" name="name" placeholder="Name" required
-                  className="w-full rounded border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
-                <input type="email" name="email" placeholder="Email Address" required
-                  className="w-full rounded border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
-              </div>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <input type="text" name="company" placeholder="Company / Organization Name"
-                  className="w-full rounded border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
-                <input type="tel" name="phone" placeholder="Phone Number (optional)"
-                  className="w-full rounded border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
-              </div>
-              <select name="subject" required
-                className="w-full rounded border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 focus:border-teal focus:outline-none">
-                <option value="" disabled selected>Select a reason for reaching out…</option>
-                <option value="I'm ready to get started">I&apos;m ready to get started</option>
-                <option value="I'd like some more information">I&apos;d like some more information</option>
-                <option value="I have a question">I have a question</option>
-              </select>
-              <textarea name="message" placeholder="Leave your message" rows={6} required
-                className="w-full rounded border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
-              {status === "error" && (
-                <p className="text-sm text-red-300">
-                  Something went wrong. Please try again or email us directly.
-                </p>
-              )}
-              <button type="submit" disabled={status === "sending"}
-                className="rounded bg-teal px-8 py-3 text-sm font-bold uppercase tracking-widest text-white transition hover:bg-teal-dark disabled:opacity-60">
-                {status === "sending" ? "Sending…" : "Submit"}
-              </button>
-            </form>
-          )}
+        {/* Right — JotForm embed */}
+        <div className="flex items-start">
+          <iframe
+            id={`JotFormIFrame-${JOTFORM_ID}`}
+            title="Sleek Media Contact Form"
+            src={`https://form.jotform.com/${JOTFORM_ID}`}
+            frameBorder={0}
+            allow="geolocation; microphone; camera; fullscreen"
+            scrolling="yes"
+            className="w-full rounded"
+            style={{ height: "680px", border: "none", background: "transparent" }}
+          />
         </div>
       </div>
     </section>
