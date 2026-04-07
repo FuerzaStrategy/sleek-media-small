@@ -116,8 +116,17 @@ export default function ContactHero() {
                 <input type="email" name="email" placeholder="Email Address" required
                   className="w-full rounded border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
               </div>
-              <input type="text" name="subject" placeholder="Subject" required
+              <input type="text" name="company" placeholder="Company / Organization Name"
                 className="w-full rounded border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
+              <input type="tel" name="phone" placeholder="Phone Number (optional)"
+                className="w-full rounded border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
+              <select name="subject" required
+                className="w-full rounded border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 focus:border-teal focus:outline-none">
+                <option value="" disabled selected>Select a reason for reaching out…</option>
+                <option value="I'm ready to get started">I&apos;m ready to get started</option>
+                <option value="I'd like some more information">I&apos;d like some more information</option>
+                <option value="I have a question">I have a question</option>
+              </select>
               <textarea name="message" placeholder="Leave your message" rows={6} required
                 className="w-full rounded border border-gray-200 bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 focus:border-teal focus:outline-none" />
               {status === "error" && (
