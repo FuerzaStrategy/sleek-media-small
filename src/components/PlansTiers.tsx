@@ -112,7 +112,7 @@ export default function PlansTiers() {
             <ul className="mt-4 space-y-2">
               {tier.features.map((f) => (
                 <li key={f} className="flex items-start gap-2 text-sm text-gray-700">
-                  <span className="mt-0.5 flex-shrink-0 text-teal">•</span>
+                  <span className="mt-0.5 flex-shrink-0 text-teal">✓</span>
                   {f}
                 </li>
               ))}
@@ -146,7 +146,7 @@ export default function PlansTiers() {
         );
 
         const photo = (
-          <div className="relative min-h-[500px] w-full">
+          <div className="relative min-h-[625px] w-full">
             <Image
               src={`${BASE}${tier.image}`}
               alt={tier.imageAlt}
@@ -160,7 +160,7 @@ export default function PlansTiers() {
         return (
           <div
             key={tier.number}
-            className="grid grid-cols-1 md:grid-cols-2 md:min-h-[500px]"
+            className="grid grid-cols-1 md:grid-cols-2 md:min-h-[625px]"
           >
             {tier.imageRight ? (
               <>{content}{photo}</>
