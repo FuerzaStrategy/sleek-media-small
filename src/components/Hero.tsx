@@ -12,7 +12,7 @@ export default function Hero() {
     <>
       <section className="relative flex min-h-[680px] items-center justify-center overflow-hidden text-center">
         <Image
-          src={`/images/home/hero.png`}
+          src={`/images/home/hero.webp`}
           alt=""
           fill
           className="object-cover object-center"

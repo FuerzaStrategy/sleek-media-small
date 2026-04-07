@@ -7,7 +7,7 @@ import Script from "next/script";
 const cases = [
   {
     name: "County of Passaic",
-    headerImage: "/images/work/county_of_passaic_Header.png",
+    headerImage: "/images/work/county_of_passaic_Header.webp",
     headerAlt: "Passaic County social media collage",
     videoRight: true,
     vimeoSrc: "https://player.vimeo.com/video/858841125?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
@@ -19,14 +19,14 @@ const cases = [
       "As part of our social media management, we launched an influencer program that showcases historic sites, restaurants, and events across Passaic County. As a result, we have developed new relationships with local businesses, further supporting the tourism work led by the department and increasing overall content reach.",
     ],
     stats: [
-      { src: "/images/work/850_percent.png", alt: "850% increase in reach", width: 100, height: 100 },
-      { src: "/images/work/organic_impressions.png", alt: "3.75x organic impressions", width: 100, height: 100 },
-      { src: "/images/work/influencer_program.png", alt: "Influencer program", width: 100, height: 100 },
+      { src: "/images/work/850_percent.webp", alt: "850% increase in reach", width: 100, height: 100 },
+      { src: "/images/work/organic_impressions.webp", alt: "3.75x organic impressions", width: 100, height: 100 },
+      { src: "/images/work/influencer_program.webp", alt: "Influencer program", width: 100, height: 100 },
     ],
   },
   {
     name: "Destination Ridgewood",
-    headerImage: "/images/work/destination_ridgewood_header.png",
+    headerImage: "/images/work/destination_ridgewood_header.webp",
     headerAlt: "Destination Ridgewood social media collage",
     videoRight: false,
     vimeoSrc: "https://player.vimeo.com/video/858836948?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1",
@@ -38,8 +38,8 @@ const cases = [
       "Our team was brought in to define a brand and voice for the future SID and lead a three-month paid marketing program that reached into surrounding communities for the return of the Pedestrian Plaza. The marketing trial determined the viability for the SID and further work is being performed to establish the underlying organizational structure by the municipal government.",
     ],
     stats: [
-      { src: "/images/work/5x_engagement.png", alt: "5x engagement", width: 100, height: 100 },
-      { src: "/images/work/20_percent.png", alt: "20% growth", width: 100, height: 100 },
+      { src: "/images/work/5x_engagement.webp", alt: "5x engagement", width: 100, height: 100 },
+      { src: "/images/work/20_percent.webp", alt: "20% growth", width: 100, height: 100 },
     ],
   },
 ];

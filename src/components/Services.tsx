@@ -9,7 +9,7 @@ const services = [
     id: "pr-management",
     title: "PR Management",
     body: "We shape narratives that earn attention—and control them when it matters most. From media outreach and press placements to crisis communications and reputation management, we position your brand in the right conversations with the right audiences. Our approach is proactive, strategic, and built to generate sustained visibility—not one-off hits.",
-    image: "/images/home/pr.png",
+    image: "/images/home/pr.webp",
     imageAlt: "PR Management — press and media mockups",
     imageRight: true,
   },
@@ -17,7 +17,7 @@ const services = [
     id: "sms-email",
     title: "SMS & Email Marketing",
     body: "We turn owned channels into high-performing revenue drivers. Through targeted segmentation, automation, and sharp creative, we build SMS and email programs that convert—without fatiguing your audience. Every message is timed, tested, and optimized to move customers from awareness to action.",
-    image: "/images/home/email.png",
+    image: "/images/home/email.webp",
     imageAlt: "SMS and Email Marketing — campaign mockups",
     imageRight: false,
   },
@@ -25,7 +25,7 @@ const services = [
     id: "graphic-design",
     title: "Graphic Design",
     body: "Design isn't decoration—it's communication. We create visual systems that are distinct, consistent, and built to perform across every touchpoint. From brand identity to campaign assets, our work ensures your message lands clearly and leaves a lasting impression.",
-    image: "/images/home/design.png",
+    image: "/images/home/design.webp",
     imageAlt: "Graphic Design — magazine and print collage",
     imageRight: true,
   },
@@ -41,7 +41,7 @@ const services = [
     id: "web-design",
     title: "Website Design & Development",
     body: "Your website should do more than exist—it should perform. We design and build fast, scalable, conversion-focused sites that reflect your brand and support your business goals. From UX strategy to development, every element is intentional, measurable, and optimized for growth.",
-    image: "/images/home/web.png",
+    image: "/images/home/web.webp",
     imageAlt: "Website Design — AAHA Road to Nationals laptop mockup",
     imageRight: true,
   },
@@ -52,7 +52,7 @@ export default function Services() {
     <section id="work" className="relative py-4">
       {/* Background image */}
       <Image
-        src={`/images/home/background.png`}
+        src={`/images/home/background.webp`}
         alt=""
         fill
         className="-z-10 object-cover object-center"

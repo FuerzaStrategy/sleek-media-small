@@ -5,7 +5,7 @@ export default function WorkHero() {
   return (
     <section className="relative flex min-h-[500px] items-center justify-center overflow-hidden text-center">
       <Image
-        src={`/images/work/hero_work.png`}
+        src={`/images/work/hero_work.webp`}
         alt=""
         fill
         className="object-cover object-center"

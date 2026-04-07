@@ -7,7 +7,7 @@ export default function PlansHero() {
       {/* Hero */}
       <section className="relative flex min-h-[600px] items-center justify-center text-center overflow-hidden">
         <Image
-          src={`/images/plans/plans_hero.png`}
+          src={`/images/plans/plans_hero.webp`}
           alt=""
           fill
           className="object-cover object-center"
