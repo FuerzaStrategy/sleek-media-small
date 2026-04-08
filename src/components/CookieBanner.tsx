@@ -17,6 +17,8 @@ export default function CookieBanner() {
   function accept() {
     localStorage.setItem(STORAGE_KEY, "accepted");
     setVisible(false);
+    // Notify other components (e.g. MetaPixel) that consent was just granted
+    window.dispatchEvent(new Event("cookieConsentAccepted"));
   }
 
   function decline() {
